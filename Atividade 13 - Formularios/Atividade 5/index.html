@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de temperatura</title>
+</head>
+<body>
+    <h1>Conversor de temperatura</h1>
+    <form action="server.php" method="post">
+        <label for="temperatura">Digite a temperatura</label>
+        <input type="number" name="temperatura" required> <br>
+        <label for="operador">Selecione o metodo de conversão:</label> <br>
+
+        <input type="radio" name="operador" value="Fahrenheit">
+        <label for="operador">Fahrenheit</label> <br>
+
+        <input type="radio" name="operador" value="Celsius">
+        <label for="operador">Celsius</label> <br>
+
+        <input type="radio" name="operador" value="Kelvin">
+        <label for="operador">Kelvin</label> <br>
+
+        <button type="submit">Calcular</button>
+    </form>
+</body>
+</html>
