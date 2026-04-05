@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
+    background-color: #f0f4f8;
+}
+
+header {
+    background-color: #1e3a5f;
+    color: white;
+    text-align: center;
+    padding: 20px 24px;
+}
+
+h1 {
+    margin: 0px;
+}
+
+main {
+    max-width: 1024px;
+    margin: auto;
+    padding: 32px 24px;
+}
+
+form {
+    display: grid;
+    gap: 1em;
+    background-color: white;
+    border: 1px solid #d6e2ed;
+    padding: 24px;
+    border-radius: 0.75em;
+    margin-bottom: 2em;
+}
+
+h2 {
+    margin: 0px 0px 16px 0px;
+}
+
+label {
+    font-weight: 500;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #d6e2ed;
+    border-radius: 0.5em;
+    width: 100%;
+}
+
+#botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+#botao-submit {
+    background-color: #1e3a5f;
+    color: white;
+}
+
+#botao-reset {
+    background-color: white;
+    border: 2px solid #d6e2ed;
+}
+
+button {
+    cursor: pointer;
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 0px;
+}
+
+section {
+    background-color: white;
+    border: 1px solid #d6e2ed;
+    padding: 24px;
+    border-radius: 0.75em;
+}
+
+#table-container {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 2px solid #eeeeee;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 16px;
+}
+
+thead {
+    background-color: #f5f5f5;
+}
+
+th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 700;
+}
+
+td {
+    padding: 16px;
+    border-top: 2px solid #eeeeee;
+}
+
+#botoes {
+    display: flex;
+    gap: 6px;
+}
+
+#botoes > a {
+    border: 2px solid #d6e2ed;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    color: black;
+}
