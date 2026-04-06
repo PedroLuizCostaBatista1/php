@@ -72,8 +72,8 @@
                                         <td>{$linha['descricao']}</td>
                                         <td>
                                             <div id='botoes'>
-                                                <a href=''>Editar</a>
-                                                <a href=''>Excluir</a>
+                                                <a href='editar.php?id={$linha['id']}'>Editar</a>
+                                                <a href='../controller/excluir.php?id={$linha['id']}'>Excluir</a>
                                             </div>
                                         </td>
                                     </tr>
