@@ -8,6 +8,7 @@
 </head>
 <body>
     <main>
+        <a href="index.html">Voltar</a>
         <h1>Cadastro</h1>
         <form action="../controller/cadastro.php" method="post">
             <div>
@@ -24,11 +25,14 @@
             </div>
             <div>
                 <label for="nome">Tipo da conta:</label>
-                <input type="radio" name="tipo" value="Aluno" required>
+                <input class="radio" type="radio" name="tipo" value="Aluno" required>
                 <label for="aluno">Aluno</label>
-                <input type="radio" name="tipo" value="Professor">
+                <input class="radio" type="radio" name="tipo" value="Professor">
                 <label for="professor">Professor</label>
             </div>
+
+            <button type="submit">Cadastrar-se</button>
+            <button type="reset">Limpar</button>
         </form>
     </main>
 </body>
