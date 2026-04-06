@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/cadastro.css">
+    <title>Cadastro - Controle de Empréstimos</title>
+</head>
+<body>
+    <main>
+        <h1>Cadastro</h1>
+        <form action="../controller/cadastro.php" method="post">
+            <div>
+                <label for="nome">Nome completo:</label>
+                <input type="text" name="nome" placeholder="Nome completo" required>
+            </div>
+            <div>
+                <label for="nome">E-mail:</label>
+                <input type="email" name="email" placeholder="E-mail completo" required>
+            </div>
+            <div>
+                <label for="nome">Telefone:</label>
+                <input type="number" name="telefone" placeholder="Telefone completo" required>
+            </div>
+            <div>
+                <label for="nome">Tipo da conta:</label>
+                <input type="radio" name="tipo" value="Aluno" required>
+                <label for="aluno">Aluno</label>
+                <input type="radio" name="tipo" value="Professor">
+                <label for="professor">Professor</label>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
