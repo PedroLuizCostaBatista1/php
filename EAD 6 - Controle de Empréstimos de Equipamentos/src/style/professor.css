@@ -3,3 +3,13 @@
 body {
     text-align: center;
 }
+
+table {
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 15px;
+}

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <?php
-        $id = $_GET['id'];
-    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../style/cadastro.css">
@@ -11,7 +8,7 @@
 </head>
 <body>
     <main>
-        <a href="index.php?id=<?php echo $id ?>">Voltar</a>
+        <a href="index.php">Voltar</a>
         <h1>Cadastro de equipamento</h1>
         <form action="../../controller/equipamento.php" method="post">
             <div>

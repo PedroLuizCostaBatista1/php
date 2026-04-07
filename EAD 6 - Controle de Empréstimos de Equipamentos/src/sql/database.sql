@@ -29,3 +29,5 @@ CREATE TABLE emprestimos (
     FOREIGN KEY (fkIdUsuario) REFERENCES usuario(id),
     FOREIGN KEY (fkIdEquipamento) REFERENCES equipamento(id)
 );
+
+SELECT * FROM usuario;

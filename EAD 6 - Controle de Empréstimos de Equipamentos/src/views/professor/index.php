@@ -3,8 +3,9 @@
 <head>
     <?php
         include('../../utils/conexao.php');
+        session_start();
+        $id = session_id();
 
-        $id = $_GET['id'] ?? "";
         $comando = "SELECT * FROM usuario WHERE id = $id";
         $resultado = $conexao -> query($comando);
         $usuario = $resultado -> fetch_assoc();
@@ -19,12 +20,48 @@
         <h1>Menu principal</h1>
         <p>Olá professor <?php echo $usuario["nome"]?>! Bem-vindo de volta!</p>
         <nav>
-            <a href="equipamento.php?id=<?php echo $usuario["id"] ?>">Adicionar equipamento</a>
+            <a href="equipamento.php">Adicionar equipamento</a>
+            <a href="../../controller/logout.php">Sair</a>
         </nav>
     </header>
     <main>
         <section>
             <h2>Lista de equipamentos</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nome</th>
+                        <th>Categoria</th>
+                        <th>Patrimonio</th>
+                        <th>Emprestimo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $comando = "SELECT * FROM equipamento";
+                        $resultado = $conexao -> query($comando);
+                        if ($resultado -> num_rows > 0) {
+                            while ($linha = $resultado -> fetch_assoc()) {
+                                echo "
+                                    <tr>
+                                        <td>{$linha['id']}</td>
+                                        <td>{$linha['nome']}</td>
+                                        <td>{$linha['categoria']}</td>
+                                        <td>{$linha['patrimonio']}</td>
+                                        <td>
+                                            <div id='botoes'>
+                                                <a href=''>Ver detalhes</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ";
+                            }
+                        }
+                    ?>
+                </tbody>
+            </table>
         </section>
     </main>
 </body>
