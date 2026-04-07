@@ -29,5 +29,3 @@ CREATE TABLE emprestimos (
     FOREIGN KEY (fkIdUsuario) REFERENCES usuario(id),
     FOREIGN KEY (fkIdEquipamento) REFERENCES equipamento(id)
 );
-
-SELECT * from usuario WHERE email = "pedro@123.com";

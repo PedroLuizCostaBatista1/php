@@ -7,9 +7,9 @@
     $usuario = $resultado -> fetch_assoc();
 
     if ($usuario['tipo'] === "Aluno") {
-        header("Location: ../views/aluno/index.html");
+        header("Location: ../views/aluno/index.php?id={$usuario['id']}");
     } else if ($usuario['tipo'] === "Professor") {
-        header("Location: ../views/professor/index.html");
+        header("Location: ../views/professor/index.php?id={$usuario['id']}");
     } else {
         header("Location: ../views/entrar.php?login=false");
     }

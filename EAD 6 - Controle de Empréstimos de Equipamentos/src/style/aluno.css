@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+body {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+}
+
+th, td {
+    padding: 15px;
+}
