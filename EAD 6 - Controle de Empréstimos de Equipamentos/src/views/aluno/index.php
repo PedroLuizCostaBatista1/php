@@ -40,24 +40,20 @@
                 </thead>
                 <tbody>
                     <?php
-                        $comando = "SELECT * FROM equipamento";
-                        $comando2 = "SELECT dataReal FROM emprestimos WHERE fkIdUsuario = $id";
+                        $comando = "SELECT e.*, emp.fkIdUsuario, emp.dataPrevista FROM equipamento e LEFT JOIN emprestimos emp ON e.id = emp.fkIdEquipamento AND e.estado = 'emprestado' GROUP BY e.id";
                         $resultado = $conexao -> query($comando);
-                        $solicitacao = "";
                         if ($resultado -> num_rows > 0) {
                             while ($linha = $resultado -> fetch_assoc()) {
+                                $solicitacao = "";
                                 if ($linha['estado'] === "emprestado") {
-                                    $resultadoData = $conexao -> query($comando2);
-                                    $data = $resultadoData -> fetch_assoc();
-
-                                    if () {
-
+                                    if ($linha['fkIdUsuario'] == $id) {
+                                        $solicitacao = "
+                                            <p>Data da devolução: {$linha['dataPrevista']}</p>
+                                            <a href='../../controller/devolucao.php?id={$linha['id']}'>Devolver agora</a>
+                                        ";
+                                    } else {
+                                        $solicitacao = "<p>Equipamento emprestado</p>";
                                     }
-                                    
-                                    $solicitacao = "
-                                        <p>Data da devolução: {$data['dataReal']}</p>
-                                        <a href=''>Devolver agora</a>
-                                    ";
                                 } else {
                                     $solicitacao = "
                                         <a href='../../controller/emprestimo.php?id={$linha['id']}'>Solicitar um Emprestimo

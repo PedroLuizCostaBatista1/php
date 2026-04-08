@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS emprestimos;
 CREATE DATABASE emprestimos;
 USE emprestimos;
 
@@ -30,4 +31,4 @@ CREATE TABLE emprestimos (
     FOREIGN KEY (fkIdEquipamento) REFERENCES equipamento(id)
 );
 
-SELECT * FROM usuario;
+SELECT emp.id, usu.nome, equip.nome AS nomeEquipamento, emp.dataEmprestimo, emp.dataPrevista, emp.dataReal, emp.status FROM emprestimos AS emp INNER JOIN usuario as usu ON emp.fkIdUsuario = usu.id INNER JOIN equipamento as equip ON emp.fkIdEquipamento = equip.id;

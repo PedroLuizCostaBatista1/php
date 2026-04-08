@@ -21,6 +21,7 @@
         <p>Olá professor <?php echo $usuario["nome"]?>! Bem-vindo de volta!</p>
         <nav>
             <a href="equipamento.php">Adicionar equipamento</a>
+            <a href="emprestimo.php">Ver detalhes dos equipamentos</a>
             <a href="../../controller/logout.php">Sair</a>
         </nav>
     </header>
@@ -35,7 +36,6 @@
                         <th>Nome</th>
                         <th>Categoria</th>
                         <th>Patrimonio</th>
-                        <th>Emprestimo</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,11 +50,6 @@
                                         <td>{$linha['nome']}</td>
                                         <td>{$linha['categoria']}</td>
                                         <td>{$linha['patrimonio']}</td>
-                                        <td>
-                                            <div id='botoes'>
-                                                <a href=''>Ver detalhes</a>
-                                            </div>
-                                        </td>
                                     </tr>
                                 ";
                             }
