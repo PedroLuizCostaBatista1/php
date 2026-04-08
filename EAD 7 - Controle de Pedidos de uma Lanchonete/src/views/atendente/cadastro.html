@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style/cadastro.css">
+    <title>Cadastro de Produto</title>
+</head>
+<body>
+    <main>
+        <a href="index.php">Voltar</a>
+        <h1>Cadastro do Produto</h1>
+
+        <form action="../../controller/cadastro.php" method="post">
+            <label for="nome">Nome do Produto</label>
+            <input type="text" name="nome" required>
+
+            <label for="preco">Preço do Produto</label>
+            <input type="number" name="preco" step="any" required>
+
+            <label for="descricao">Descrição do Produto (Opcional)</label>
+            <input type="text" name="descricao">
+
+            <button type="submit">Cadastrar</button>
+            <button type="reset">Limpar</button>
+        </form>
+    </main>
+</body>
+</html>
