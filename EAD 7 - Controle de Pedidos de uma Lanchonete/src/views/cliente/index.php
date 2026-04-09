@@ -8,10 +8,14 @@
 </head>
 <body>
     <main>
-        <h1>Novo Pedido</h1>
+        <header>
+            <h1>Novo Pedido</h1>
+        </header>
         <form action="" method="post">
-            <label for="nome">Qual é o seu nome?</label>
-            <input type="text" name="nome" required>
+            <div>
+                <label for="nome">Qual é o seu nome?</label>
+                <input type="text" name="nome" required>
+            </div>
 
             <label for="produto">Selecione um Produto</label>
 

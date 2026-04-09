@@ -12,14 +12,20 @@
         <h1>Cadastro do Produto</h1>
 
         <form action="../../controller/cadastro.php" method="post">
-            <label for="nome">Nome do Produto</label>
-            <input type="text" name="nome" required>
+            <div>
+                <label for="nome">Nome do Produto</label>
+                <input type="text" name="nome" required>
+            </div>
 
-            <label for="preco">Preço do Produto</label>
-            <input type="number" name="preco" step="any" required>
+            <div>
+                <label for="preco">Preço do Produto</label>
+                <input type="number" name="preco" step="any" required>
+            </div>
 
-            <label for="descricao">Descrição do Produto (Opcional)</label>
-            <input type="text" name="descricao">
+            <div>
+                <label for="descricao">Descrição do Produto (Opcional)</label>
+                <input type="text" name="descricao">
+            </div>
 
             <button type="submit">Cadastrar</button>
             <button type="reset">Limpar</button>
