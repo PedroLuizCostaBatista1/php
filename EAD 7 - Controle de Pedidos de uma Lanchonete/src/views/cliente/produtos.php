@@ -17,13 +17,6 @@
         </header>
         <form action="../../controller/pedido.php" method="post">
             <div>
-                <label for="nome">Qual é o seu nome?</label>
-                <input type="text" name="nome" required>
-            </div>
-
-            <label for="produto">Selecione a quantidade dos Produtos:</label>
-
-            <div>
                 <?php
                     $comando = "SELECT * FROM produtos";
                     $resultado = $conexao -> query($comando);

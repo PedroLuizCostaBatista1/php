@@ -1,57 +1,60 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Controle de Pedidos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Pedidos - Lanchonete</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
-<body class="bg-light">
-<div class="container mt-5">
-    <h2 class="mb-4">📋 Pedidos da Lanchonete</h2>
-    
-    <form class="row g-3 mb-4">
-        <div class="col-auto">
-            <select name="status" class="form-select">
-                <option value="">Todos os Status</option>
-                <option value="em preparo">Em preparo</option>
-                <option value="pronto">Pronto</option>
-                <option value="entregue">Entregue</option>
-            </select>
+<body class="container mt-4">
+    <nav class="mb-4">
+        <a href="produtos.php" class="btn btn-secondary">Produtos</a>
+        <a href="pedidos.php" class="btn btn-primary">Pedidos</a>
+    </nav>
+
+    <h2>Criar Novo Pedido</h2>
+    <form method="POST" class="card card-body mb-4">
+        <input type="text" name="cliente" class="form-control mb-2" placeholder="Nome do Cliente" required>
+        <p>Selecione os Produtos:</p>
+        <div class="mb-2">
+            <?php foreach($todos_produtos as $prod): ?>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="produtos_id[]" value="<?= $prod['id'] ?>">
+                    <label class="form-check-label"><?= $prod['nome'] ?> - R$ <?= $prod['preco'] ?></label>
+                </div>
+            <?php endforeach; ?>
         </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary">Filtrar</button>
-        </div>
-        <div class="col-auto">
-            <a href="novo_pedido.php" class="btn btn-success">Novo Pedido</a>
-        </div>
+        <button type="submit" name="novo_pedido" class="btn btn-success">Finalizar Pedido</button>
     </form>
 
-    <table class="table table-hover bg-white shadow-sm rounded">
+    <h2>Listagem de Pedidos</h2>
+    <table class="table table-bordered">
         <thead class="table-dark">
-            <tr>
-                <th>Código</th>
-                <th>Cliente</th>
-                <th>Data</th>
-                <th>Total</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
+            <tr><th>Cód</th><th>Cliente</th><th>Data</th><th>Total</th><th>Status</th><th>Ação</th></tr>
         </thead>
         <tbody>
-            <?php foreach ($pedidos as $p): ?>
-            <tr class="<?= $p['status'] != 'entregue' ? 'table-warning' : '' ?>">
-                <td>#<?= $p['id'] ?></td>
-                <td><?= $p['nome_cliente'] ?></td>
-                <td><?= date('d/m/H:i', strtotime($p['data_pedido'])) ?></td>
-                <td>R$ <?= number_format($p['total'] ?? 0, 2, ',', '.') ?></td>
-                <td><span class="badge bg-secondary"><?= strtoupper($p['status']) ?></span></td>
+            <?php foreach($pedidos as $ped): ?>
+            <tr>
+                <td><?= $ped['id'] ?></td>
+                <td><?= htmlspecialchars($ped['cliente']) ?></td>
+                <td><?= date('d/m H:i', strtotime($ped['data_pedido'])) ?></td>
+                <td>R$ <?= number_format($ped['total'], 2, ',', '.') ?></td>
                 <td>
-                    <a href="detalhes_pedido.php?id=<?= $p['id'] ?>" class="btn btn-sm btn-info">Ver Itens</a>
+                    <form method="POST" class="d-inline">
+                        <input type="hidden" name="pedido_id" value="<?= $ped['id'] ?>">
+                        <select name="novo_status" onchange="this.form.submit()" class="form-select form-select-sm d-inline w-auto">
+                            <option value="em preparo" <?= $ped['status']=='em preparo'?'selected':'' ?>>Em preparo</option>
+                            <option value="pronto" <?= $ped['status']=='pronto'?'selected':'' ?>>Pronto</option>
+                            <option value="entregue" <?= $ped['status']=='entregue'?'selected':'' ?>>Entregue</option>
+                        </select>
+                        <input type="hidden" name="atualizar_status">
+                    </form>
                 </td>
+                <td><a href="detalhes.php?id=<?= $ped['id'] ?>" class="btn btn-info btn-sm">Ver Itens</a></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-</div>
 </body>
 </html>

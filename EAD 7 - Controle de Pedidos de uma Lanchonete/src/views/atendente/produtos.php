@@ -13,6 +13,7 @@
     <main>
         <header>
             <h1>Produtos da Lanchonete</h1>
+            <a href="cadastro.html">Cadastrar um Produto</a>
             <a href="index.php">Voltar</a>
         </header>
 

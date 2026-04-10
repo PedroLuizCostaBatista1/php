@@ -27,4 +27,18 @@ CREATE TABLE itens_pedido (
     FOREIGN KEY (fkIdProduto) REFERENCES produtos(id)
 );
 
-SELECT * FROM produtos;
+SELECT * FROM itens_pedido;
+
+SELECT
+    p.id AS pedido_id,
+    p.nome_cliente,
+    p.data,
+    p.status,
+    pr.nome AS produto_nome,
+    ip.quantidade,
+    ip.preco
+FROM
+    pedidos p
+    INNER JOIN itens_pedido ip ON p.id = ip.fkIdPedido
+    INNER JOIN produtos pr ON ip.fkIdProduto = pr.id
+ORDER BY p.id;

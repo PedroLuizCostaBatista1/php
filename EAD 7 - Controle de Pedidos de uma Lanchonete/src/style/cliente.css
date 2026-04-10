@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+}
+
+main {
+    max-width: 512px;
+    margin: auto;
+    padding: 32px 24px;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+}
